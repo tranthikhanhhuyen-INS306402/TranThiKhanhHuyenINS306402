@@ -1,0 +1,15 @@
+Complete this checklist to verify your code meets all requirements:
+
+The file has the .php extension and is located in the correct place. 2/2
+The opening PHP tag (<?php) is present. 2/2
+The closing PHP tag (?>) is present. 2/2
+Values ​​are assigned to variables such as name, student ID, class, and email. 3/3
+At least four echo statements display variables. 3/3
+The `date()` function displays the current date. 2/2
+The date() function displays the current time. 2/2
+At least one comment line (// or /* */). 2/2
+All statements end with a semicolon. 3/3
+The source code is more readable if properly indented. 2/2
+No PHP errors occur when running the file in a browser. 3/3
+The output looks professional. 3/3
+TOTAL SCORE 30/30
