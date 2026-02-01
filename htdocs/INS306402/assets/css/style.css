@@ -1,6 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
+:root {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --primary-color: #4f46e5;
+    --secondary-color: #ec4899;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+body {
+    background: var(--bg-color);
+    font-family: "Poppins", sans-serif;
+    color: var(--text-main);
+}
 * {
   margin: 0;
   padding: 0;
@@ -639,125 +656,147 @@ header .navbar ul li a:hover {
 /* education media queries ends*/
 /* education section ends */
 
-/* work section starts */
 .work {
-  /* background: #010124; */
-  background: linear-gradient(to bottom, #000031, #00002c);
+    background: var(--bg-color);
+    padding: 8rem 9%;
 }
-.work h2 {
-  color: #fff;
-  padding: 1rem;
+
+/* Tiêu đề phần Work */
+.work .heading {
+    font-family: 'Playfair Display', serif; /* Font chữ nghệ thuật cho tiêu đề */
+    font-size: 4rem;
+    color: var(--text-main);
+    margin-bottom: 6rem;
+    text-align: center;
 }
+
 .work .heading span {
-  color: rgb(255, 230, 0);
+    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+/* Lưới chứa các thẻ dự án */
 .work .box-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap: 4rem;
 }
+
+/* Thẻ dự án (Card) */
 .work .box-container .box {
-  flex: 1 1 30rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-  height: 30rem;
+    background: var(--card-bg);
+    border-radius: 2.5rem;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    position: relative;
 }
-.work .box-container .box img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+
+/* Hiệu ứng khi di chuột vào thẻ */
+.work .box-container .box:hover {
+    transform: translateY(-1.5rem);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
 }
-.work .box-container .box .content {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 85%;
-  left: 0;
-  background: rgba(255, 255, 255, 0.9);
-  display: flex;
-  flex-direction: column;
+
+/* Phần chứa hình ảnh */
+.work .box .image-container {
+    width: 100%;
+    height: 24rem;
+    overflow: hidden;
 }
-.work .box-container .box .content .tag {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 4.5rem;
-  width: 100%;
-  padding-left: 1rem;
-  background: #ffd900;
+
+.work .box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
 }
-.work .box-container .box .content .tag h3 {
-  font-size: 2rem;
+
+.work .box:hover img {
+    transform: scale(1.1);
 }
-.work .box-container .box:hover .content {
-  top: 25%;
+
+/* Nội dung bên dưới ảnh */
+.work .box .content {
+    padding: 3rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex-grow: 1;
 }
-.work .desc {
-  margin: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+.work .box .tag h3 {
+    font-size: 2.2rem;
+    color: var(--text-main);
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
 }
-.work .desc p {
-  font-size: 1.5rem;
+
+.work .box .content p {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    text-transform: none; /* Giữ chữ thường để dễ đọc */
 }
-.work .desc .btns {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 2rem;
+
+/* Nhãn loại dự án ở góc (tùy chọn) */
+.work .box .type-label {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    z-index: 10;
 }
-.work .desc .btns .btn {
-  line-height: 0;
-  display: inline;
-  padding: 1.5rem 2.5rem;
-  border-radius: 0.5rem;
-  font-size: 1.5rem;
-  color: #fff;
-  background: rgb(12, 12, 12);
-  margin-right: 2rem;
+
+/* Nút bấm trong dự án */
+.work .btns {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: auto; /* Luôn nằm ở dưới cùng của thẻ */
+    padding-top: 1rem;
 }
-.work .desc .btns .btn:hover {
-  background: #310ae0f5;
+
+.work .btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: var(--primary-color);
+    color: #fff !important;
+    border-radius: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: var(--transition);
 }
-.work .viewall {
-  display: flex;
-  justify-content: center;
+
+.work .btn:hover {
+    background: var(--text-main);
+    transform: scale(1.05);
 }
-.work .viewall .btn {
-  position: relative;
-  line-height: 0;
-  padding: 1.6rem 3rem;
-  border-radius: 0.5em;
-  transition: 0.5s;
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-  border: 2px solid #fff;
-  box-shadow: 0px 5px 10px rgba(65, 84, 241, 0.4);
-  text-align: center;
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .work {
+        padding: 5rem 2rem;
+    }
+    .work .box-container {
+        grid-template-columns: 1fr; /* Một cột duy nhất trên mobile */
+    }
 }
-.work .viewall .btn span {
-  font-weight: 600;
-  font-size: 1.7rem;
-  font-family: "Nunito", sans-serif;
-}
-.work .viewall .btn i {
-  margin-left: 0.3rem;
-  font-size: 1.5rem;
-  transition: 0.3s;
-}
-.work .viewall .btn:hover {
-  background: #fff;
-  color: #000;
-}
-.work .viewall .btn:hover i {
-  transform: translateX(5px);
-}
-/* work section ends */
 
 /* experience section starts */
 .experience .timeline {
