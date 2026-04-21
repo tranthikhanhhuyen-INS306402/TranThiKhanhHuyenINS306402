@@ -1,0 +1,19 @@
+**Day 7 — Reflection**
+
+**1. Which parts of your design are Model, View, and Controller?**
+In my design, the Model includes Request, RequestRepository, and RequestService because they handle data and business logic. The View includes files like requests/index.php and requests/show.php, which display information to the user. The Controller is RequestController, which receives user requests, processes them using the Model, and returns the appropriate View.
+
+---
+
+**2. Where should validation happen, and why?**
+Validation should happen in the RequestValidator class. This follows the Single Responsibility Principle because validation logic is separated from other parts of the system. It also makes the code easier to maintain and update when validation rules change.
+
+---
+
+**3. What would break if you put SQL inside a View file?**
+If SQL is placed inside a View file, it breaks the MVC structure. The View should only handle display, not data access. This would make the code harder to maintain, harder to test, and more confusing because responsibilities are mixed together.
+
+---
+
+**4. What code do you expect to write next week to make this real?**
+Next week, I expect to write a proper router to handle URLs and connect them to controller actions. I will also implement real database connections using PDO, improve the controller logic, and create better HTML views. Additionally, I may add autoloading and better project structure to make the application more complete.

@@ -1,0 +1,26 @@
+**MVC Mapping Table**
+
+| Item                           | MVC Layer  | Why?                                 |
+| ------------------------------ | ---------- | ------------------------------------ |
+| Request (data + status)        | Model      | Represents application data          |
+| RequestRepository              | Model      | Accesses and manages data storage    |
+| RequestService                 | Model      | Handles business logic and rules     |
+| RequestController@index        | Controller | Handles request and selects view     |
+| RequestController@show         | Controller | Retrieves data and shows detail view |
+| RequestController@store        | Controller | Processes form submission            |
+| RequestController@updateStatus | Controller | Updates request status               |
+| requests/index.php             | View       | Displays list of requests            |
+| requests/show.php              | View       | Displays request details             |
+
+---
+
+**Route Table**
+
+| HTTP | URL                   | Controller@Action              | Purpose                     |
+| ---- | --------------------- | ------------------------------ | --------------------------- |
+| GET  | /requests             | RequestController@index        | List all requests           |
+| GET  | /requests/create      | RequestController@create       | Show form to create request |
+| POST | /requests             | RequestController@store        | Save new request            |
+| GET  | /requests/{id}        | RequestController@show         | View request details        |
+| POST | /requests/{id}/status | RequestController@updateStatus | Update request status       |
+| GET  | /staff/requests       | RequestController@staffIndex   | View all requests for staff |
